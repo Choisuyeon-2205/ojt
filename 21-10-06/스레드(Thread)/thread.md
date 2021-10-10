@@ -135,7 +135,7 @@ public class BeepPrintEx02 {
 }
 ```
   
-![1.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67b868fe-d957-4dc4-8aab-474b0c9b3b33/1.png)  
+![1.PNG](./1.png)  
   
 ex) 채팅 프로그램, 게임 프로그램 구현 시 멀티스레드를 적극 활용한다.  
   
