@@ -4,7 +4,7 @@
 패키지 명: 고객관리구축  
 클래스 명: ManageSystem ⇒ main() 포함   
 
-![managementErd](./img/managementErd.jpg)  
+![managementErd](./managementErd.jpg)  
 
   
    
