@@ -189,6 +189,8 @@ public class LambdaEx {
 }
 ```
    
+![1.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/75e29e11-5c50-4192-a700-c3f7a7d69987/1.png)  
+	 
      
 
 ### 람다식 실습3  
@@ -269,4 +271,4 @@ public class StreamPipelinesEx {
 ```
   
     
-![1.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/75e29e11-5c50-4192-a700-c3f7a7d69987/1.png)
+
