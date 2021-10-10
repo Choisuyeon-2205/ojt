@@ -4,11 +4,11 @@
 패키지 명: 고객관리구축  
 클래스 명: ManageSystem ⇒ main() 포함   
 
-![Inked1_LI.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/61fe1b9a-860a-4267-b2f1-397394025190/Inked1_LI.jpg)  
+![managementErd](./img/managementErd.jpg)  
 
-
-====================================================== 
   
+   
+    
   
 ## 팝업 다이얼로그  
 사용자에게 메세지를 전달하거나 문자열을 간단히 입력받는 용도  
