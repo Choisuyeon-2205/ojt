@@ -7,28 +7,27 @@ Multi-Threading이 지원되면,
 - 하나의 프로그램 내에서 여러 개의 일을 동시에 수행하는 것이 가능  
 - 스레드 간 데이터 공유 가능 → 멀티 프로세스 시스템보다 더 효율적으로 프로그램 작성이 가능!  
   
-<자바의 스레드 지원 방식>  
+**<자바의 스레드 지원 방식>**  
 1. Java.lang.Thread 클래스 사용  
 2. Java.lang.Runnable 인터페이스 사용  
-  
 ⇒ 차이점  
 1 방법: 스레드를 지원하고자 하는 클래스를 생성 시 즉  Thread를 상속받는 class를 start 시킨다.  
 2 방법: Runnable를 구현한 class를 new Thread()의 인수로 주어서 새로 만든 다른 클래스로부터 상속이 필요한 경우 Thread객체를 start() 시키는 것  
   
-<Thread 클래스 사용법>  
+**<Thread 클래스 사용법>** 
 1. Thread 클래스를 상속 받은 뒤, 해당 클래스에서 지원하고 싶은 코드를 run()  메소드에서 오버라이딩 한다.  
 2. 해당 스레드 객체를 생성한 후, 스레드 객체의 start() 메서드를 호출한다.  
   
-<Runnable 인터페이스의 사용법>  
+**<Runnable 인터페이스의 사용법>**  
 1. Runnable 인터페이스를 구현한 스레드 클래스를 정의하고, 해당 스레드에서 지원하고 싶은 코드를 run() 메소드에서 오버라이딩해준다.  
 2. 해당 클래스 객체를 생성한 후, Thread 클래스 생성자의 인자로 넘겨서 Thread를 생성하고, 이 Thread 클래스 객체의 start() 메소드를 호출한다.  
 
-<start() 메소드와 run() 메소드의 관계>  
+**<start() 메소드와 run() 메소드의 관계>**  
 - 프로그래머는 스레드의 start() 메소드만을 호출할 수 있다.  
 - 그러면, JVM이 스레드를 준비(ready)상태로 바꾼다.  
 - 준비 상태의 JVM 내의 스레드 스케줄러가 실행(run)상태로 바꾸어주면, 이 때 비로소 스레드의 run() 메소드가 실행 된다.  
 
-<동기화>  
+**<동기화>**
 - 자바에서는 언어 차원에서 멀티스레딩을 지원한다.  
 - 여러 개의 스레드가 같은 데이터나 메소드를 사용할 때 주의해야할 점이 있는데, 바로 동기화를 맞추는 것이다.  
   
@@ -38,12 +37,12 @@ Multi-Threading이 지원되면,
 
 ### [실습: 스레드 구현]
 
-프로젝트 명: 1006_스레드구현
-패키지 명: 멀티스레드예제
-클래스 명:  BeepPrintEx01 ⇒ main() 포함 O
-	   BeepPrintTask ⇒ main() 포함 X
-           BeepPrintEx02 ⇒ main() 포함 O
-
+프로젝트 명: 1006_스레드구현  
+패키지 명: 멀티스레드예제  
+클래스 명:  BeepPrintEx01 ⇒ main() 포함 O  
+	   BeepPrintTask ⇒ main() 포함 X  
+           BeepPrintEx02 ⇒ main() 포함 O  
+  
 ```java
 /import java.awt.Toolkit;
 
@@ -80,7 +79,7 @@ public class BeepPrintEx01 {
 
 }
 ```
-
+  
 ```java
 import java.awt.Toolkit;
 
@@ -108,7 +107,7 @@ public class BeepPrintTask implements Runnable {
 
 }
 ```
-
+  
 ```java
 public class BeepPrintEx02 {
 	
@@ -135,19 +134,19 @@ public class BeepPrintEx02 {
 
 }
 ```
-
-![1.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67b868fe-d957-4dc4-8aab-474b0c9b3b33/1.png)
-
-ex) 채팅 프로그램, 게임 프로그램 구현 시 멀티스레드를 적극 활용한다.
-
+  
+![1.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67b868fe-d957-4dc4-8aab-474b0c9b3b33/1.png)  
+  
+ex) 채팅 프로그램, 게임 프로그램 구현 시 멀티스레드를 적극 활용한다.  
+  
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
   
    
 ### 실습2
-
-패키지 명: 가상의로봇릴레이게임
-클래스 명: RobotRaceStart ⇒ main() 포함 O
-
+  
+패키지 명: 가상의로봇릴레이게임  
+클래스 명: RobotRaceStart ⇒ main() 포함 O  
+  
 ```java
 class RobotRace extends Thread{
 	//생성자
@@ -169,7 +168,9 @@ class RobotRace extends Thread{
 	}
 
 }
-
+```
+   
+```java
 public class RobotRaceStart {
 
 	public static void main(String[] args) {
@@ -185,5 +186,3 @@ public class RobotRaceStart {
 
 }
 ```
-
----
