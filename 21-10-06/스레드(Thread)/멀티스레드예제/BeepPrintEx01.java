@@ -1,4 +1,4 @@
-/import java.awt.Toolkit;
+import java.awt.Toolkit;
 
 /*
  * 싱글 스레드(즉, 메인 스레드) 애플리케이션
