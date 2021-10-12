@@ -1,0 +1,17 @@
+1. Border Layout  
+JFrame의 기본 레이아웃으로 컴포넌트들을 상,하,좌,우,중앙 으로 배치한다.  
+![img.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/34ce0687-8e7e-435a-8292-8822d5df3d9f/img.png)
+  
+  
+2. Grid Layout  
+컴포넌트들을 행과 열로 배치한다.  
+컴포넌트의 크기는 컨테이너의 크기에 자동으로 맞춰진다.  
+![img.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/66a962de-dd5b-4064-999c-b3d6074da10c/img.png)  
+  
+3. Flow Layout    
+컴포넌트들을 왼쪽에서 오른쪽으로 일렬로 배치한다. 컨테이너 크기를 넘어서면 자동으로 아래로 배치한다. 생성자로 정렬 방식을 지정해줄 수 있다.  
+![img.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8c88cfdd-8a61-4c43-8e68-d81096b35d23/img.png)  
+  
+4. Card Layout  
+한 화면에 여러 컨테이너들을 겹쳐 슬라이드 처럼 사용한다.   
+하나의 프레임으로 여러 화면을 보여주고 싶을 때 사용한다.  
