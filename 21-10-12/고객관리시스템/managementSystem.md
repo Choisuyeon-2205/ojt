@@ -279,4 +279,177 @@ public void save(){
         }
 ```
   
+    
+    
+============================================================================================  
+### 정렬 기능 구현  
+⇒  MenuMain 클래스 내부의 itemStateChanged 메소드에서 각각 정렬 기능을 수행할 메소드를 호출한다.  
+  
+```java
+@Override
+        public void itemStateChanged(ItemEvent e){
+            if(e.getSource().equals(sno)) numSort(); //'번호' 정렬
+            else if(e.getSource().equals(sname)) stringSort(1); //'이름' 정렬
+            else if(e.getSource().equals(schul)) stringSort(7); //'출신지역' 정렬
+            else if(e.getSource().equals(sjob)) stringSort(9); //'직업' 정렬
+        }
+```
+  
+1. 번호 정렬 ⇒ numSort() 메소드 구현  
+  
+```java
+//'번호' 정렬 ===================
+        public void numSort() {
+            int row= showTable.table.getRowCount(); //행의 갯수 얻기
+            int col= showTable.table.getColumnCount(); //열의 갯수 얻기
+
+            String temp;
+            String[][] arr= new String[row][col]; //2차원 배열 객체 생성
+
+            //먼저 JTable 객체의 데이터들을 arr[][] 2차원 배열로 옮기기
+            for(int i=0;i<row;i++){
+                for(int j=0;j<col;j++){
+                    arr[i][j]= (String)showTable.table.getValueAt(i,j);
+                }
+            }
+
+            //선택 정렬(selection sort) 알고리즘을 적용하여 2차원 배열 정렬하기
+            for(int i=0;i<row-1;i++){
+                for(int j=i+1;j<row-1;j++){
+                    if(Integer.parseInt(arr[i][0])>Integer.parseInt(arr[j][0])){
+                        for(int k=0;k<col;k++){
+                            temp= arr[i][k];
+                            arr[i][k]= arr[j][k];
+                            arr[j][k]= temp;
+                        }
+                    }
+
+                }
+            }
+            //arr[][] 2차원 배열의 데이터들을  JTable로 옮기기
+            for(int i=0;i<row;i++){
+                for(int j=0;j<col;j++){
+                    showTable.table.setValueAt(arr[i][j],i,j);   //매개변수 value, row, col
+                }
+            }
+
+        }
+```  
+  
+2. 이름, 출신지역, 직업 정렬 ⇒ stringSort(int) 메소드 구현  
+  
+```java
+// 하나의 메소드로 '이름', '출신지역', '직업' 정렬을 처리한다.
+        public void stringSort(int sortType){
+            int row = showTable.table.getRowCount();    // 행의 갯수 얻기
+            int col = showTable.table.getColumnCount(); // 열의 갯수 얻기
+
+            String temp;
+            String[][] arr = new String[row][col];    // 2차원 배열 객체 생성
+
+            // 먼저 JTable 객체의 데이터들을 arr 2차원 배열로 옮기기
+            for(int i=0; i<row; i++){
+                for(int j=0; j<col; j++){
+                    arr[i][j] = (String)showTable.table.getValueAt(i, j);
+                }
+            }
+            // 선택정렬 (selection sort) 알고리즘을 적용하여 2차원 배열 정렬하기
+            for(int i=0; i<row-1; i++){
+                for(int j=i+1; j<row-1; j++){
+                    if(arr[i][sortType].compareTo(arr[j][sortType])>0){
+                        for(int k=0; k<col; k++){
+                            temp = arr[i][k];
+                            arr[i][k] = arr[j][k];
+                            arr[j][k] = temp;
+                        }
+                    }
+                }
+            }
+            // arr[][] 2차원 배열의 데이터들을 JTable로 옮기기
+            for(int i=0; i<row; i++){
+                for(int j=0; j<col; j++){
+                    showTable.table.setValueAt(arr[i][j],i,j);
+                }
+            }
+
+        }
+```
+  
+  
+============================================================================================  
+  
+### 이전, 다음 기능 구현  
+이전: 선택한 고객 정보의 이전(위)의 고객 정보를 조회한다.  
+다음: 선택한 고객 정보의 다음(아래)의 고객 정보를 조회한다.  
+  
+  
+⇒ 내가 작성한 코드  
+이전/다음으로 넘어가도 한 바퀴 돌게 작성  
+  
+```java
+//'다음' 버튼에서 이벤트가 발생하면 처리하는 메소드
+public void nextData() {
+      showTable.row++;
+      if(showTable.row>=showTable.data.size()) showTable.row= 0;
+
+      //JTable에 있는 데이터를 west객체 input객체의 JTextField 객체에 보여주기
+      showTable.Info();
+}
+
+//'이전' 버튼에서 이벤트가 발생하면 처리하는 메소드
+public void preData() {
+      showTable.row--;
+
+      if(showTable.row<0) showTable.row= showTable.data.size()-1;
+      //JTable에 있는 데이터를 west객체 input객체의 JTextField 객체에 보여주기
+      showTable.Info();
+}
+```
+  
+⇒ 교수님 코드  
+이전/다음이 없으면 막아둠  
+  
+```java
+//'다음' 버튼에서 이벤트가 발생하면 처리하는 메소드
+public void nextData() {
+       if(showTable.row < showTable.datamodel.getRowCount()-1){
+            showTable.row++;
+            addBtn.setEnabled(false); //'추가' 버튼 비활성화
+            preBtn.setEnabled(true);
+        }else{
+            nextBtn.setEnabled(false); //'다음'버튼 비활성화
+            addBtn.setEnabled(true); //'추가' 버튼 활성화
+
+            west.input.tf[0].setText(null);
+            west.input.tf[1].setText(null);
+            west.input.tf[2].setText(null);
+            west.input.tf[3].setText(null);
+            west.input.tf[4].setEnabled(true);
+            west.input.tf[4].setText(null);
+            west.input.box.setSelectedIndex(0);
+            west.input.tf[0].requestFocus();
+
+            west.output.label[0].setText(" 나이:");
+            west.output.label[1].setText(" 성별:");
+            west.output.label[2].setText(" 출생지역:");
+            west.output.label[3].setText(" 생일:");
+
+            return;
+        }
+        showTable.Info();
+ }
+  
+ //'이전' 버튼에서 이벤트가 발생하면 처리하는 메소드
+ public void preData() {
+       if(showTable.row>0){
+           showTable.row--;
+           addBtn.setEnabled(false); //'추가' 버튼 비활성화
+           nextBtn.setEnabled(true); //'다음'버튼 활성화
+       }else{
+            preBtn.setEnabled(false); //'이전'버튼 비활성화
+            addBtn.setEnabled(true); //'추가' 버튼 활성화
+       }
+       showTable.Info();
+}
+```  
   
