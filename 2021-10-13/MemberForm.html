@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입 폼 만들기</title>
+<style>
+	.star {
+		color: red;
+	}
+	
+	#div1 {
+		width : 1000px;
+	}
+</style>
+<!-- 주소 검색 API -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+function searchAddress(){
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+        	document.getElementById("zonecode").value= data.zonecode;
+        	document.getElementById("roadAddress").value= data.roadAddress;
+        	document.getElementById("buildingName").value= data.buildingName;
+        }
+    }).open();
+}
+</script>
+<script>
+window.onload(function(){
+	  for (i = 1960; i < 2022; i++){
+	       $('#year').append( '<option value="'+i+'">'+i+'</option>' );
+	  }
+})
+
+//email 자동입력
+function emailChange(){
+	var email_sort = document.getElementById("email_sort").value;
+
+    document.getElementById("email2").value = email_sort;
+}
+</script>
+</head>
+<body>
+<h1 align="center">회원가입</h1>
+<div id="div1">
+	<h5 align="right"><span class="star">*</span>필수입력사항</h5>
+	<form method="post"> 
+	<table width="1000" border="1px" bordercolor="grey" align="center" >  
+		<tbody> 
+			<tr> 
+				<td colspan="2" bgcolor="orange" align="center">회원 기본 정보</td>
+			</tr> 
+			<tr> 
+				<td align="center">아이디<span class="star">*</span></td> 
+				<td><input size="20" type="text" name="id" placeholder="6자 이상의 영문과 문자"> <input type="button" value="ID중복확인"></td> 
+			</tr> 
+			<tr> 
+				<td align="center">비밀번호<span class="star">*</span></td> 
+				<td><input size="20" type="password" name="password"> 8~12자리의 영문 대소문자와 숫자, 특수문자만 입력 </td> 
+			</tr> 
+			<tr> 
+				<td align="center">비밀번호 확인<span class="star">*</span></td> 
+				<td><input size="20" type="password" name="password_check"></td> 
+			</tr> 
+			<tr> 
+				<td align="center">이름<span class="star">*</span></td> 
+				<td><input type="text" name="name"></td> 
+			</tr> 
+			<tr> 
+				<td align="center">닉네임</td> 
+				<td><input type="text" name="nickname"> 2~8자리의 한글로만 입력 </td> 
+			</tr> 
+			<tr> 
+				<td align="center">이메일<span class="star">*</span></td>
+				<td><input type="text" name="email1"/>@ <input type="text" id="email2"/> <select id="email_sort" onchange="emailChange()"><option value="">직접 입력</option><option value="naver.com">naver.com</option><option value="daum.net">daum.net</option><option value="nate.com">nate.com</option></select> </td> 
+			</tr>
+			<tr> 
+				<td align="center">주민번호<span class="star">*</span></td> 
+				<td> <input type="text" name="id_num"> - <input type="password" name="id_num_back"> <input type="button" value="주민번호 정상 유무 체크"></td> 
+			</tr> 
+			<tr> 
+				<td align="center">휴대폰<span class="star">*</span></td> 
+				<td><input type="text" name="phone"> 예)010-1234-5678 </td> 
+			</tr> 
+			<tr> 
+				<td align="center">성별</td> 
+				<td><input type="radio" name="sex" checked="checked">남 <input type="radio" name="sex">여 </td> 
+			</tr> 
+			<tr> 
+				<td align="center">생년월일<span class="star">*</span></td> 
+				<td> 
+					<select id="year"> <option value="2021">2021</option> </select> 년 
+					<select id="month"> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> <option value="6">6</option> <option value="7">7</option> <option value="8">8</option> <option value="9">9</option> <option value="10">10</option> <option value="11">11</option> <option value="12">12</option> </select> 월
+					<select id="day"> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> <option value="6">6</option> <option value="7">7</option> <option value="8">8</option> <option value="9">9</option> <option value="10">10</option> <option value="11">11</option> <option value="12">12</option> <option value="13">13</option> <option value="14">14</option> <option value="15">15</option> <option value="16">16</option> <option value="17">17</option> <option value="18">18</option> <option value="19">19</option> <option value="20">20</option> <option value="21">21</option> <option value="22">22</option> <option value="23">23</option> <option value="24">24</option> <option value="25">25</option> <option value="26">26</option> <option value="27">27</option> <option value="28">28</option> <option value="29">29</option> <option value="30">30</option> <option value="31">31</option> </select> 일 
+				</td> 
+			</tr> 
+			<tr> 
+				<td align="center">직업<span class="star">*</span></td> 
+				<td><select id="job"> <option value="0">직업선택</option><option value="무직">무직</option><option value="프로그래머">프로그래머</option></td> 
+			</tr> 
+			<tr> 
+				<td align="center">주소<span class="star">*</span></td> 
+				<td>
+					<input type="text" id="zonecode" placeholder="우편번호"/> <input type="button" value="우편번호 찾기" onclick="searchAddress()"><br><br>
+					<input type="text" size="120" id="roadAddress" placeholder="주소"/><br>
+					<input type="text" size="50" id="buildingName" placeholder="참고항목(도로명인 경우: 지역들 이름과 아파트의 이름)"/>  <input type="text" size="50" name="address_detail" placeholder="상세주소(아파트 동호수, 또는 빌딩이름 입력)"/>
+				</td> 
+			</tr> 
+			<tr> 
+				<td colspan="2" align="center">
+					<input type="submit" value="회원가입 등록">&nbsp;&nbsp;&nbsp;
+					<input type="reset" value="다시쓰기">
+				</td>
+			</tr>
+		</tbody> 
+	</table>
+	</form>
+</div>
+</body>
+</html>
