@@ -1,4 +1,4 @@
-**[실습 2] 문자열" 타이핑 효과주기**
+**[실습 2] 문자열" 타이핑 효과주기**  
 showtext = new Array(8);  
 showtext[0]= "본 회사의 설립목적은"  
 showtext[1]= "기업간 전자상거래를 위한 B2B Solution을 보유한"  
