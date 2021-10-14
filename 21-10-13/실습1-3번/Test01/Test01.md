@@ -45,6 +45,6 @@
 ```
   
 실행 결과 ⇒ 동적인 텍스트 : 글자가 오른쪽에서 왼쪽으로 움직인다.  
-![0.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/09532d10-30f5-46b4-9ae4-960214fbf17d/0.png)
+![0.PNG](./imgs/0.png)
   
-![1.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/65bb76aa-3cfe-4f71-88b0-c1f29a3e74fe/1.png)
+![1.PNG](./imgs/1.png)
