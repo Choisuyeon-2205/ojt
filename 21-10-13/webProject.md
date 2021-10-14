@@ -1,5 +1,5 @@
 웹 프로그래밍 START!  
-=> cWeb 개념 정리 ⇒ HTML, CSS, JavaScript, jQuery, jQuery 플러그인, Bootstrap, React  
+=> Web 개념 정리 ⇒ HTML, CSS, JavaScript, jQuery, jQuery 플러그인, Bootstrap, React  
 
 1. 아파치 서버 다운로드 및 연결
 2. 프로젝트 생성
