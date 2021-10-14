@@ -12,4 +12,4 @@ add 버튼을 눌러 새로운 apache tomcat 8.0 버전 추가해주기 (+폴더
 
 4. 하단의 Server 창에 Server 연결 설정해주기 !
 
-![1.PNG](./imgs/1.png)
+![1.PNG](./1.png)
