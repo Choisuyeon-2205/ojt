@@ -7,6 +7,7 @@
   
 1. 프로젝트 디렉토리 구조  
 프로젝트 명: Membership_Join  
+
 	Java Resources 폴더    
 		src 폴더에서  
 			패키지 명: member 생성   
