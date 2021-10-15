@@ -7,21 +7,21 @@
   
 1. 프로젝트 디렉토리 구조  
 프로젝트 명: Membership_Join  
-   Java Resources 폴더    
-    src 폴더에서  
-      패키지 명: member 생성   
-        클래스 명: DBBean ⇒ main() 메소드 포함X    
-   WebContent 폴더에서  
-    jsp 파일명: MemberForm 생성    
-               IdCheck  
-               Member_control  
-               Welcome  
-    js 폴더 생성   
-      javascript 파일명: idCheck  
-                        change_email   
-                        juminCheck  
+	Java Resources 폴더    
+		src 폴더에서  
+			패키지 명: member 생성   
+				클래스 명: DBBean ⇒ main() 메소드 포함X    
+	WebContent 폴더에서  
+		jsp 파일명: MemberForm 생성    
+			    IdCheck  
+			    Member_control  
+			    Welcome  
+		js 폴더 생성   
+			javascript 파일명: idCheck  
+   					change_email   
+					juminCheck  
   
-  
+    
 2. 오라클(Oracle) 설치  
 OracleXEUniv.zip ⇒ 교수님께서 보내 줌   
 파일 사용하여 설치를 진행  
