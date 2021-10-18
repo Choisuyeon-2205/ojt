@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>datapicker jQuery UI 예제</title>
+<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.16.custom.css" />
+
+<!-- 코딩 순서가 중요 -->
+<!-- jQuery include -->
+<script src="js/jquery.js"></script>
+
+<!-- jQuery UI include -->
+<script src="js/jquery-ui-1.8.16.custom.min.js"></script> <!-- datapicker()가 포함되어 있는 폴더 -->
+
+<script>
+	$(document).ready(function(){
+		//$(selector).action(); =>jQuery 기본 문법
+		$("#datapicker").datepicker();
+	});
+</script>
+</head>
+
+<body>
+	<h3><b>콘비노 와인 레스토랑</b></h3>
+	<p>레스토랑 예약날짜:<input id="datapicker"/></p>
+</body>
+</html>
